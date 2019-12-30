@@ -29,6 +29,9 @@ Route::resource('usuario','UsuarioController');
 
 Route::get('/redirigir','PeliculaController@redirigir');
 
+Route::get('/formulario','PeliculaController@formulario');
+Route::post('/recibir','PeliculaController@recibir');
+
 /*
 Route::get('/mostrar-fecha', function () {
     $titulo = "Fecha del Sistema";
