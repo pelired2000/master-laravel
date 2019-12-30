@@ -15,6 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/peliculas','PeliculaController@index');
+
+Route::get('/peliculas/{pagina?}','PeliculaController@index');
+
+Route::get('/detalle/{year?}', [
+            'middleware' => 'testyear',
+            'uses' => 'PeliculaController@detalle',
+            'as'   => 'detalle.pelicula'
+]);
+
+Route::resource('usuario','UsuarioController');
+
+Route::get('/redirigir','PeliculaController@redirigir');
+
+/*
 Route::get('/mostrar-fecha', function () {
     $titulo = "Fecha del Sistema";
     return view('mostrar-fecha',array(
@@ -22,7 +37,7 @@ Route::get('/mostrar-fecha', function () {
     ));
 });
 
-/* Route::get('/pelicula/{titulo}', function ($titulo) {
+Route::get('/pelicula/{titulo}', function ($titulo) {
     return view('pelicula',array(
         'titulo' => $titulo
     ));
@@ -32,7 +47,7 @@ Route::get('/pelicula/{titulo?}', function ($titulo="No hay una película selecc
     return view('pelicula',array(
         'titulo' => $titulo
     ));
-}); */
+});
 
 Route::get('/pelicula/{titulo?}/{year?}', function ($titulo='No hay una película seleccionada :(',$year=2020) {
     return view('pelicula',array(
@@ -55,3 +70,4 @@ Route::get('/listado-peliculas', function () {
 Route::get('/pagina-generica', function () {
     return view('pagina');
 });
+*/
