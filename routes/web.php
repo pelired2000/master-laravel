@@ -32,6 +32,17 @@ Route::get('/redirigir','PeliculaController@redirigir');
 Route::get('/formulario','PeliculaController@formulario');
 Route::post('/recibir','PeliculaController@recibir');
 
+//Rutas de fruta
+Route::group(['prefix'=>'frutas'], function(){
+    Route::get('index','FrutaController@index');
+    Route::get('detail/{id}','FrutaController@detail');
+    Route::get('crear','FrutaController@create');
+    Route::post('save','FrutaController@save');
+    Route::get('delete/{id}','FrutaController@delete');
+    Route::get('edit/{id}','FrutaController@edit');
+    Route::post('update','FrutaController@update');
+});
+
 /*
 Route::get('/mostrar-fecha', function () {
     $titulo = "Fecha del Sistema";
